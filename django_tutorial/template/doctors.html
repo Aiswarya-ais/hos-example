@@ -7,5 +7,20 @@ doctors
 
 {% block content %}
 <h1>doctors page</h1>
-
+{%for d in doc %}
+<div class="container">
+    <h1>{{d.doc_name}}</h1>
+    <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{d.doc_name}}</h5>
+    <p class="card-text">{{d.doc_spec}}</p>
+    <h6 class="card-title">{{d.dep_name}}</h6>
+   
+  </div>
+</div>
+    
+</div>
+{% endfor %}
 {% endblock %}
+
