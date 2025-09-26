@@ -1,24 +1,27 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import departments
+from .models import departments,doctors  
+
 def index(request):
-    return render(request,'index.html')
+    return render(request, 'index.html')
 
 def about(request):
-    return render(request,'about.html')
+    return render(request, 'about.html')
 
 def booking(request):
-    return render(request,'booking.html')
+    return render(request, 'booking.html')
 
-def doctors(request):
-    return render(request,'doctors.html')
+def doctor(request):
+    dict_doc = {
+        'doc': doctors.objects.all()   
+    }
+    return render(request, 'doctors.html', dict_doc)
 
 def contact(request):
-    return render(request,'contact.html')
+    return render(request, 'contact.html')
 
 def department(request):
-    dict_dep={
-        'dept':departments.objects.all()
+    dict_dep = {
+        'dept': departments.objects.all()  
     }
-    return render(request,'department.html',dict_dep)
-
+    return render(request, 'department.html', dict_dep)
